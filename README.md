@@ -67,3 +67,15 @@ My personal steps of instructions for provisioning a new Ubuntu server w/ big ad
 
 17. `sudo chmod +x /etc/network/if-pre-up.d/firewall` make file executable so as to readd firewall rules on system boot.
 18. `sudo apt-get install fail2ban` to kick anyone out with too many failed logins.
+19. `sudo apt-get install git build-essential` probably a pretty good idea to have these two.
+20. `git clone https://github.com/zjr/dotfiles-lin.git ~/.dotfiles` and make symlinks for the necessitites (bash_profile, bashrc, inputrc).
+21. `sh <(curl https://j.mp/spf13-vim3 -L)` install spf13-vim (vim 'distro' w/ some niceties).
+22. `curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash` install nvm
+23. `source ~/.bash_profile && nvm install 0.10 && nvm alias default 0.10` install nvm, node, npm.
+21. Now is a good time to install any system wide npm packages (e.g. pm2, bower, &c.).
+22. `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10` install MongoDB Pt. 1;
+23. `echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list` install MongoDB Pt. 2;
+24. `sudo apt-get update && sudo apt-get install -y mongodb-org` finally actually install MongoDB.
+25. `sudo vim /etc/mongod.conf` and comment out `bind_ip = 127.0.0.1` if outside connections needed.
+26. Now is a good time to set up DBs & any necessary users or specific DB config.
+27. I think that does it… next would be more specific things.  Maybe install some gems, pip.
